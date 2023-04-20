@@ -3,7 +3,7 @@ pkgdesc="ROS - RTAB-Maps standalone library."
 url='http://introlab.github.io/rtabmap'
 
 pkgname='ros-noetic-rtabmap'
-pkgver='0.20.0'
+pkgver='0.21.1'
 _pkgver_patch=1
 arch=('any')
 pkgrel=1
@@ -45,8 +45,8 @@ source=(
 	fix-python-scripts.sh
 )
 sha256sums=(
-	'7c66dc9f823e6cbde9897aabe847ed49a13fbd86286a9c459d7e3b8cc6d8d119'
-	'SKIP'
+	'53dcc1dcfe161bea38c5ed2b400d10ef21a613e3a7e88d3d3edce6d27372b105'
+	'5528486d640d91136276edda2075aefc06f360e6297e556051bae57b9479aeda'
 )
 
 
