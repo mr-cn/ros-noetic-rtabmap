@@ -40,8 +40,14 @@ depends=(${ros_depends[@]}
 # Tarball version (faster download)
 _dir="rtabmap-release-release-noetic-rtabmap-${pkgver}-${_pkgver_patch}"
 #_dir="rtabmap-release-release-noetic-rtabmap"
-source=("${pkgname}-${pkgver}-${_pkgver_patch}.tar.gz"::"https://github.com/introlab/rtabmap-release/archive/release/noetic/rtabmap/${pkgver}-${_pkgver_patch}.tar.gz")
-sha256sums=('7c66dc9f823e6cbde9897aabe847ed49a13fbd86286a9c459d7e3b8cc6d8d119')
+source=(
+	"${pkgname}-${pkgver}-${_pkgver_patch}.tar.gz"::"https://github.com/introlab/rtabmap-release/archive/release/noetic/rtabmap/${pkgver}-${_pkgver_patch}.tar.gz"
+	fix-python-scripts.sh
+)
+sha256sums=(
+	'7c66dc9f823e6cbde9897aabe847ed49a13fbd86286a9c459d7e3b8cc6d8d119'
+	'SKIP'
+)
 
 
 build() {
@@ -54,7 +60,7 @@ build() {
   cd ${srcdir}/build
 
   # Fix Python2/Python3 conflicts
-  /usr/share/ros-build-tools/fix-python-scripts.sh -v 3 ${srcdir}/${_dir}
+  ${srcdir}/fix-python-scripts.sh -v 3 ${srcdir}/${_dir}
 
   # Build project
   cmake ${srcdir}/${_dir} \
